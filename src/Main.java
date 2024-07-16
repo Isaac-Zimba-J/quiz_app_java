@@ -10,457 +10,31 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 
 
-
-
-
 public class Main extends JFrame {
 
-    // public class Question {
-    //     private String questionText;
-    //     private String[] options;
-    //     private String correctAnswer;
+    public class Question {
+        private String questionText;
+        private String[] options;
+        private String correctAnswer;
     
-    //     public Question(String questionText, String[] options, String correctAnswer) {
-    //         this.questionText = questionText;
-    //         this.options = options;
-    //         this.correctAnswer = correctAnswer;
-    //     }
-    
-    //     public String getQuestionText() {
-    //         return questionText;
-    //     }
-    
-    //     public String[] getOptions() {
-    //         return options;
-    //     }
-    
-    //     public String getCorrectAnswer() {
-    //         return correctAnswer;
-    //     }
-    // }
-    
-
-    // Questions and answers arrays politics
-    String[] politicsQuestions = {
-        "Who was the first President of Zambia after its independence in 1964?",
-        "Which political party did Kenneth Kaunda lead?",
-        "What is the term limit for the President of Zambia as per the current constitution?",
-        "In which year did Zambia transition to a multi-party democracy?",
-        "Who succeeded Kenneth Kaunda as President of Zambia in 1991?",
-        "Which party led Zambia into independence?",
-        "Who is the current President of Zambia as of 2023?",
-        "In which year was the Patriotic Front (PF) founded?",
-        "Who was Zambia's first female Vice President?",
-        "What is the name of Zambia's parliament?",
-        "How many provinces does Zambia have?",
-        "Who was the third President of Zambia?",
-        "In which year was the Movement for Multi-Party Democracy (MMD) formed?",
-        "Who was the leader of the United Party for National Development (UPND) before Hakainde Hichilema?",
-        "What was Kenneth Kaunda's political philosophy called?",
-        "Which Zambian President died while in office in 2008?",
-        "Who was Zambia's Vice President under Frederick Chiluba?",
-        "In which year was the Patriotic Front (PF) first elected to power?",
-        "Who was Zambia's President from 2015 to 2021?",
-        "What is the minimum age requirement to run for President in Zambia?",
-        "Which Zambian President introduced the controversial 'Third Term' debate?",
-        "Who was the first Zambian President to be elected after a predecessor died in office?",
-        "In which year did Zambia return to a multi-party system after being a one-party state?",
-        "Who was Zambia's Minister of Finance under President Hakainde Hichilema?",
-        "What is the term length for members of the Zambian National Assembly?"
-    };
-    
-    String[] politicsAnswers = {
-        "C) Kenneth Kaunda",
-        "D) United National Independence Party (UNIP)",
-        "B) Two terms of five years each",
-        "C) 1991",
-        "A) Frederick Chiluba",
-        "D) United National Independence Party (UNIP)",
-        "D) Hakainde Hichilema",
-        "B) 2001",
-        "C) Inonge Wina",
-        "A) National Assembly",
-        "C) 10",
-        "B) Levy Mwanawasa",
-        "A) 1990",
-        "C) Anderson Mazoka",
-        "B) Humanism",
-        "D) Levy Mwanawasa",
-        "A) Christon Tembo",
-        "C) 2011",
-        "B) Edgar Lungu",
-        "D) 35 years",
-        "A) Frederick Chiluba",
-        "C) Rupiah Banda",
-        "B) 1991",
-        "A) Situmbeko Musokotwane",
-        "C) 5 years"
-    };
-    
-    String[][] politicsOptions = {
-        {
-            "A) Frederick Chiluba",
-            "B) Hakainde Hichilema",
-            "C) Kenneth Kaunda",
-            "D) Rupiah Banda"
-        },
-        {
-            "A) Movement for Multi-Party Democracy (MMD)",
-            "B) Patriotic Front (PF)",
-            "C) United Party for National Development (UPND)",
-            "D) United National Independence Party (UNIP)"
-        },
-        {
-            "A) One term of seven years",
-            "B) Two terms of five years each",
-            "C) Two terms of four years each",
-            "D) Three terms of four years each"
-        },
-        {
-            "A) 1964",
-            "B) 1980",
-            "C) 1991",
-            "D) 2001"
-        },
-        {
-            "A) Frederick Chiluba",
-            "B) Levy Mwanawasa",
-            "C) Rupiah Banda",
-            "D) Michael Sata"
-        },
-        {
-            "A) Movement for Multi-Party Democracy (MMD)",
-            "B) Patriotic Front (PF)",
-            "C) United Party for National Development (UPND)",
-            "D) United National Independence Party (UNIP)"
-        },
-        {
-            "A) Edgar Lungu",
-            "B) Michael Sata",
-            "C) Rupiah Banda",
-            "D) Hakainde Hichilema"
-        },
-        {
-            "A) 1991",
-            "B) 2001",
-            "C) 2006",
-            "D) 2011"
-        },
-        {
-            "A) Edith Nawakwi",
-            "B) Mutale Nalumango",
-            "C) Inonge Wina",
-            "D) Nkandu Luo"
-        },
-        {
-            "A) National Assembly",
-            "B) House of Representatives",
-            "C) Congress",
-            "D) Parliament House"
-        },
-        {
-            "A) 8",
-            "B) 9",
-            "C) 10",
-            "D) 11"
-        },
-        {
-            "A) Frederick Chiluba",
-            "B) Levy Mwanawasa",
-            "C) Rupiah Banda",
-            "D) Michael Sata"
-        },
-        {
-            "A) 1990",
-            "B) 1991",
-            "C) 1992",
-            "D) 1993"
-        },
-        {
-            "A) Sakwiba Sikota",
-            "B) Charles Milupi",
-            "C) Anderson Mazoka",
-            "D) Bob Sichinga"
-        },
-        {
-            "A) African Socialism",
-            "B) Humanism",
-            "C) Zambian Nationalism",
-            "D) One Zambia, One Nation"
-        },
-        {
-            "A) Frederick Chiluba",
-            "B) Michael Sata",
-            "C) Rupiah Banda",
-            "D) Levy Mwanawasa"
-        },
-        {
-            "A) Christon Tembo",
-            "B) Godfrey Miyanda",
-            "C) Enoch Kavindele",
-            "D) Nevers Mumba"
-        },
-        {
-            "A) 2001",
-            "B) 2006",
-            "C) 2011",
-            "D) 2016"
-        },
-        {
-            "A) Michael Sata",
-            "B) Edgar Lungu",
-            "C) Rupiah Banda",
-            "D) Guy Scott"
-        },
-        {
-            "A) 18 years",
-            "B) 21 years",
-            "C) 30 years",
-            "D) 35 years"
-        },
-        {
-            "A) Frederick Chiluba",
-            "B) Levy Mwanawasa",
-            "C) Rupiah Banda",
-            "D) Edgar Lungu"
-        },
-        {
-            "A) Guy Scott",
-            "B) Edgar Lungu",
-            "C) Rupiah Banda",
-            "D) Michael Sata"
-        },
-        {
-            "A) 1990",
-            "B) 1991",
-            "C) 1992",
-            "D) 1993"
-        },
-        {
-            "A) Situmbeko Musokotwane",
-            "B) Felix Mutati",
-            "C) Margaret Mwanakatwe",
-            "D) Bwalya Ng'andu"
-        },
-        {
-            "A) 3 years",
-            "B) 4 years",
-            "C) 5 years",
-            "D) 6 years"
+        public Question(String questionText, String[] options, String correctAnswer) {
+            this.questionText = questionText;
+            this.options = options;
+            this.correctAnswer = correctAnswer;
         }
-    };
-
-
-    // Questions and answers arrays geography 
-    String[] geographyQuestions ={
-        "What is the largest waterfall in Zambia, and one of the largest in the world?",
-        "Which major African lake forms part of Zambia's border with the Democratic Republic of the Congo?",
-        "What is the highest point in Zambia?",
-        "What is the predominant vegetation type found in most of Zambia?",
-        "What is the capital city of Zambia?",
-        "Which river is the longest in Zambia?",
-        "What major wildlife reserve is located in eastern Zambia?",
-        "What significant river flows through the Zambezi River basin?",
-        "Which province is known for its rich copper deposits?",
-        "What is the name of the large artificial lake on the Zambezi River?",
-        "Which Zambian city is known for being a major mining center?",
-        "What natural region covers much of the Zambian plateau?",
-        "Which river forms a natural border between Zambia and Zimbabwe?",
-        "What mountain range lies along the northeastern border of Zambia?",
-        "What is the main agricultural product grown in the Southern Province of Zambia?",
-        "What is the main river that flows through Lusaka, the capital city?",
-        "Which national park is known for its population of white rhinos?",
-        "What is the name of the waterfall located near the town of Mpika?",
-        "What is the largest province in Zambia by area?",
-        "Which Zambian lake is known for its fisheries and birdlife?",
-        "What is the main source of hydroelectric power in Zambia?",
-        "Which province is home to the Barotse Floodplain?",
-        "What is the major export crop of the Central Province?",
-        "What significant swamp area is located in northern Zambia?",
-        "What is the name of the plateau that covers much of central and southern Zambia?"
-    };
     
-    String[] geographyAnswers = {
-        "A) Victoria Falls",
-        "C) Lake Tanganyika",
-        "D) Mafinga Hills",
-        "B) Savanna",
-        "B) Lusaka",
-        "A) Zambezi River",
-        "D) South Luangwa National Park",
-        "A) Zambezi River",
-        "B) Copperbelt",
-        "C) Lake Kariba",
-        "D) Kitwe",
-        "B) Miombo Woodland",
-        "A) Zambezi River",
-        "C) Muchinga Mountains",
-        "D) Maize",
-        "B) Chongwe River",
-        "A) Mosi-oa-Tunya National Park",
-        "C) Kundalila Falls",
-        "B) Western Province",
-        "D) Lake Bangweulu",
-        "A) Kariba Dam",
-        "C) Western Province",
-        "B) Tobacco",
-        "A) Bangweulu Swamps",
-        "D) Central Plateau"
-    };
-    
-    String[][] geographyOptions = {
-        {
-          "A) Victoria Falls",
-          "B) Kafue River",
-          "C) Kariba Dam",
-          "D) Lake Bangweulu"
-        },
-        {
-          "A) Lake Victoria",
-          "B) Lake Malawi",
-          "C) Lake Tanganyika",
-          "D) Lake Kariba"
-        },
-        {
-          "A) Muchinga Escarpment",
-          "B) Livingstone Mountains",
-          "C) Kafue Flats",
-          "D) Mafinga Hills"
-        },
-        {
-          "A) Rainforest",
-          "B) Savanna",
-          "C) Desert",
-          "D) Tundra"
-        },
-        {
-          "A) Ndola",
-          "B) Lusaka",
-          "C) Kitwe",
-          "D) Livingstone"
-        },
-        {
-          "A) Zambezi River",
-          "B) Kafue River",
-          "C) Luangwa River",
-          "D) Chambeshi River"
-        },
-        {
-          "A) Kafue National Park",
-          "B) Liuwa Plain National Park",
-          "C) Lower Zambezi National Park",
-          "D) South Luangwa National Park"
-        },
-        {
-          "A) Zambezi River",
-          "B) Luangwa River",
-          "C) Kafue River",
-          "D) Chambeshi River"
-        },
-        {
-          "A) Lusaka",
-          "B) Copperbelt",
-          "C) Northern",
-          "D) Eastern"
-        },
-        {
-          "A) Lake Tanganyika",
-          "B) Lake Mweru",
-          "C) Lake Kariba",
-          "D) Lake Bangweulu"
-        },
-        {
-          "A) Lusaka",
-          "B) Ndola",
-          "C) Livingstone",
-          "D) Kitwe"
-        },
-        {
-          "A) Rainforest",
-          "B) Miombo Woodland",
-          "C) Desert",
-          "D) Montane Forest"
-        },
-        {
-          "A) Zambezi River",
-          "B) Kafue River",
-          "C) Luangwa River",
-          "D) Chambeshi River"
-        },
-        {
-          "A) Muchinga Escarpment",
-          "B) Mafinga Hills",
-          "C) Muchinga Mountains",
-          "D) Nyika Plateau"
-        },
-        {
-          "A) Cotton",
-          "B) Tobacco",
-          "C) Sugar Cane",
-          "D) Maize"
-        },
-        {
-          "A) Kafue River",
-          "B) Chongwe River",
-          "C) Luangwa River",
-          "D) Chambeshi River"
-        },
-        {
-          "A) Mosi-oa-Tunya National Park",
-          "B) Kafue National Park",
-          "C) South Luangwa National Park",
-          "D) Liuwa Plain National Park"
-        },
-        {
-          "A) Victoria Falls",
-          "B) Lumangwe Falls",
-          "C) Kundalila Falls",
-          "D) Chishimba Falls"
-        },
-        {
-          "A) Northern Province",
-          "B) Western Province",
-          "C) Southern Province",
-          "D) Eastern Province"
-        },
-        {
-          "A) Lake Bangweulu",
-          "B) Lake Mweru",
-          "C) Lake Tanganyika",
-          "D) Lake Kariba"
-        },
-        {
-          "A) Kariba Dam",
-          "B) Kafue Gorge Dam",
-          "C) Itezhi-Tezhi Dam",
-          "D) Victoria Falls"
-        },
-        {
-          "A) Northern Province",
-          "B) Eastern Province",
-          "C) Western Province",
-          "D) Southern Province"
-        },
-        {
-          "A) Maize",
-          "B) Tobacco",
-          "C) Cotton",
-          "D) Soybeans"
-        },
-        {
-          "A) Bangweulu Swamps",
-          "B) Kafue Flats",
-          "C) Lukanga Swamps",
-          "D) Busanga Swamps"
-        },
-        {
-          "A) Muchinga Plateau",
-          "B) Nyika Plateau",
-          "C) Luangwa Plateau",
-          "D) Central Plateau"
+        public String getQuestionText() {
+            return questionText;
         }
-    };
-      
+    
+        public String[] getOptions() {
+            return options;
+        }
+    
+        public String getCorrectAnswer() {
+            return correctAnswer;
+        }
+    }  
 
     private JRadioButton politicsRadioButton;
     private JRadioButton geographyRadioButton;
@@ -472,13 +46,12 @@ public class Main extends JFrame {
     private JPanel buttonPanel;
 
     // New fields for quiz functionality
-    private int currentQuestionIndex = 0;
+   // private int currentQuestionIndex = 0;
     private JFrame quizFrame;
     private JPanel quizPanel;
     private ButtonGroup optionsGroup;
     private JButton nextButton;
-    private String[] currentQuestions, currentAnswers;
-    private String[][] currentOptions;
+   // private String[] currentQuestions, currentAnswers;
     private ArrayList<Boolean> userAnswers;
     private ArrayList<String> userSelectedAnswers;
 
@@ -488,7 +61,8 @@ public class Main extends JFrame {
     private int timeLeft;
 
     // changed things here
-
+    private Question[] currentQuestions;
+    private int currentQuestionIndex = 0;
     // Main constructor
     public Main() {
         setSize(800, 600);
@@ -574,16 +148,16 @@ public class Main extends JFrame {
     private void enterButtonClicked() {
         if (politicsRadioButton.isSelected()) {
             hideMainWindow();
-            createFrame("Politics", politicsQuestions, politicsAnswers, politicsOptions);
+            createFrame("Politics", createPoliticsQuestions());
         } else if (geographyRadioButton.isSelected()) {
             hideMainWindow();
-             createFrame("Geography", geographyQuestions, geographyAnswers, geographyOptions);
+            createFrame("Geography", createGeographyQuestions());
         } else if (musicRadioButton.isSelected()) {
             hideMainWindow();
-            //createFrame("Music", musicQuestions, musicAnswers, musicOptions);
+            createFrame("Music", createMusicQuestions());
         } else if (cultureRadioButton.isSelected()) {
             hideMainWindow();
-            //createFrame("Culture", cultureQuestions, cultureAnswers, cultureOptions);
+            createFrame("Culture", createCultureQuestions());
         } else {
             JOptionPane.showMessageDialog(this, "Please select a category.");
         }
@@ -593,10 +167,10 @@ public class Main extends JFrame {
         this.setVisible(false);
     }
 
-    public void createFrame(String categoryName, String[] questions, String[] answers, String[][] options) {
+    public void createFrame(String categoryName, Question[] questions ) {
         currentQuestions = questions;
-        currentAnswers = answers;
-        currentOptions = options;
+        //currentAnswers = answers;
+        //currentOptions = options;
         currentQuestionIndex = 0;
         userAnswers = new ArrayList<>();
         userSelectedAnswers = new ArrayList<>();
@@ -653,12 +227,13 @@ private void displayQuestion() {
         JPanel contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         
-        JLabel questionLabel = new JLabel(currentQuestions[currentQuestionIndex]);
+        Question currentQuestion = currentQuestions[currentQuestionIndex];
+        JLabel questionLabel = new JLabel(currentQuestion.getQuestionText());
         questionLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         contentPanel.add(questionLabel);
         contentPanel.add(Box.createRigidArea(new Dimension(0, 10)));
         
-        for (String option : currentOptions[currentQuestionIndex]) {
+        for (String option : currentQuestion.getOptions()) {
             JRadioButton optionButton = new JRadioButton(option);
             optionButton.setAlignmentX(Component.LEFT_ALIGNMENT);
             optionsGroup.add(optionButton);
@@ -734,27 +309,27 @@ private void moveToNextQuestion() {
 }
 
 
-    private void checkAnswer() {
-        String correctAnswer = currentAnswers[currentQuestionIndex];
-        String selectedAnswer = null;
+private void checkAnswer() {
+    String correctAnswer = currentQuestions[currentQuestionIndex].getCorrectAnswer();
+    String selectedAnswer = null;
 
-        for (Enumeration<AbstractButton> buttons = optionsGroup.getElements(); buttons.hasMoreElements();) {
-            AbstractButton button = buttons.nextElement();
-            if (button.isSelected()) {
-                selectedAnswer = button.getText();
-                break;
-            }
-        }
-
-        if (selectedAnswer == null) {
-            JOptionPane.showMessageDialog(quizFrame, "Please select an answer.");
-        } else {
-            boolean isCorrect = selectedAnswer.equals(correctAnswer);
-            userAnswers.add(isCorrect);
-            userSelectedAnswers.add(selectedAnswer);
-            nextQuestion();
+    for (Enumeration<AbstractButton> buttons = optionsGroup.getElements(); buttons.hasMoreElements();) {
+        AbstractButton button = buttons.nextElement();
+        if (button.isSelected()) {
+            selectedAnswer = button.getText();
+            break;
         }
     }
+
+    if (selectedAnswer == null) {
+        JOptionPane.showMessageDialog(quizFrame, "Please select an answer.");
+    } else {
+        boolean isCorrect = selectedAnswer.equals(correctAnswer);
+        userAnswers.add(isCorrect);
+        userSelectedAnswers.add(selectedAnswer);
+        nextQuestion();
+    }
+}
 
     private void nextQuestion() {
         currentQuestionIndex++;
@@ -778,7 +353,8 @@ private void moveToNextQuestion() {
 
         int correctCount = 0;
         for (int i = 0; i < currentQuestions.length; i++) {
-            JLabel questionLabel = new JLabel((i + 1) + ". " + currentQuestions[i]);
+            Question question = currentQuestions[i];
+            JLabel questionLabel = new JLabel((i + 1) + ". " + question.getQuestionText());
             questionLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
             quizPanel.add(questionLabel);
 
@@ -786,7 +362,7 @@ private void moveToNextQuestion() {
             answerLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
             quizPanel.add(answerLabel);
 
-            JLabel correctLabel = new JLabel("Correct answer: " + currentAnswers[i]);
+            JLabel correctLabel = new JLabel("Correct answer: " + question.getCorrectAnswer());
             correctLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
             quizPanel.add(correctLabel);
 
@@ -848,6 +424,375 @@ private void moveToNextQuestion() {
         categoryGroup.clearSelection();
     }
 
+    private Question[] createPoliticsQuestions() {
+        String[] politicsQuestions = {
+            "Who was the first President of Zambia after its independence in 1964?",
+            "Which political party did Kenneth Kaunda lead?",
+            "What is the term limit for the President of Zambia as per the current constitution?",
+            "In which year did Zambia transition to a multi-party democracy?",
+            "Who is the current President of Zambia?",
+            "Which Zambian President introduced the Structural Adjustment Program?",
+            "What is the capital city of Zambia?",
+            "Which river forms the border between Zambia and Zimbabwe?",
+            "Who was the second President of Zambia?",
+            "In which year did Zambia gain independence?",
+            "What is the official language of Zambia?",
+            "Which party won the Zambian general elections in 2011?",
+            "Who was the President of Zambia from 2008 to 2011?",
+            "What is the currency of Zambia?",
+            "Which Zambian province is famous for the Victoria Falls?",
+            "Who was the first female Vice President of Zambia?",
+            "Which political party was founded by Michael Sata?",
+            "In which year was the Patriotic Front (PF) founded?",
+            "Who was the President of Zambia before Hakainde Hichilema?",
+            "Which Zambian President died in office in 2014?",
+            "Which party did Frederick Chiluba belong to?",
+            "What is the highest court in Zambia?",
+            "Who was the first Speaker of the National Assembly of Zambia?",
+            "Which country borders Zambia to the west?",
+            "What is the motto of Zambia?"
+        };
+        
+        String[] politicsAnswers = {
+            "C) Kenneth Kaunda",
+            "D) United National Independence Party (UNIP)",
+            "B) Two terms of five years each",
+            "C) 1991",
+            "A) Hakainde Hichilema",
+            "B) Frederick Chiluba",
+            "A) Lusaka",
+            "D) Zambezi River",
+            "A) Frederick Chiluba",
+            "C) 1964",
+            "B) English",
+            "C) Patriotic Front (PF)",
+            "A) Rupiah Banda",
+            "C) Zambian Kwacha",
+            "D) Southern Province",
+            "A) Inonge Wina",
+            "C) Patriotic Front (PF)",
+            "B) 2001",
+            "D) Edgar Lungu",
+            "B) Michael Sata",
+            "A) Movement for Multi-Party Democracy (MMD)",
+            "C) Supreme Court",
+            "B) Wesley Nyirenda",
+            "D) Angola",
+            "A) One Zambia, One Nation"
+        };
+        
+        String[][] politicsOptions = {
+            { "A) Frederick Chiluba", "B) Hakainde Hichilema", "C) Kenneth Kaunda", "D) Rupiah Banda" },
+            { "A) Movement for Multi-Party Democracy (MMD)", "B) Patriotic Front (PF)", "C) United Party for National Development (UPND)", "D) United National Independence Party (UNIP)" },
+            { "A) One term of seven years", "B) Two terms of five years each", "C) Two terms of four years each", "D) Three terms of four years each" },
+            { "A) 1964", "B) 1980", "C) 1991", "D) 2001" },
+            { "A) Hakainde Hichilema", "B) Edgar Lungu", "C) Rupiah Banda", "D) Michael Sata" },
+            { "A) Kenneth Kaunda", "B) Frederick Chiluba", "C) Levy Mwanawasa", "D) Rupiah Banda" },
+            { "A) Lusaka", "B) Ndola", "C) Kitwe", "D) Livingstone" },
+            { "A) Congo River", "B) Nile River", "C) Limpopo River", "D) Zambezi River" },
+            { "A) Frederick Chiluba", "B) Michael Sata", "C) Rupiah Banda", "D) Edgar Lungu" },
+            { "A) 1953", "B) 1958", "C) 1964", "D) 1969" },
+            { "A) Bemba", "B) English", "C) Nyanja", "D) Tonga" },
+            { "A) Movement for Multi-Party Democracy (MMD)", "B) United National Independence Party (UNIP)", "C) Patriotic Front (PF)", "D) United Party for National Development (UPND)" },
+            { "A) Rupiah Banda", "B) Frederick Chiluba", "C) Michael Sata", "D) Hakainde Hichilema" },
+            { "A) Zambian Dollar", "B) Zambian Pound", "C) Zambian Kwacha", "D) Zambian Shilling" },
+            { "A) Copperbelt Province", "B) Eastern Province", "C) Western Province", "D) Southern Province" },
+            { "A) Inonge Wina", "B) Edith Nawakwi", "C) Mutale Nalumango", "D) Margaret Mwanakatwe" },
+            { "A) Movement for Multi-Party Democracy (MMD)", "B) United National Independence Party (UNIP)", "C) Patriotic Front (PF)", "D) United Party for National Development (UPND)" },
+            { "A) 1990", "B) 2001", "C) 2011", "D) 2015" },
+            { "A) Michael Sata", "B) Rupiah Banda", "C) Levy Mwanawasa", "D) Edgar Lungu" },
+            { "A) Levy Mwanawasa", "B) Michael Sata", "C) Frederick Chiluba", "D) Kenneth Kaunda" },
+            { "A) Movement for Multi-Party Democracy (MMD)", "B) United National Independence Party (UNIP)", "C) Patriotic Front (PF)", "D) United Party for National Development (UPND)" },
+            { "A) Constitutional Court", "B) Court of Appeal", "C) Supreme Court", "D) High Court" },
+            { "A) Robinson Nabulyato", "B) Wesley Nyirenda", "C) Amusaa Mwanamwambwa", "D) Patrick Matibini" },
+            { "A) Tanzania", "B) Botswana", "C) Malawi", "D) Angola" },
+            { "A) One Zambia, One Nation", "B) Unity and Freedom", "C) Forward with Zambia", "D) Prosperity for All"
+            }
+        };
+    
+        Question[] questions = new Question[politicsQuestions.length];
+        for (int i = 0; i < politicsQuestions.length; i++) {
+            questions[i] = new Question(politicsQuestions[i], politicsOptions[i], politicsAnswers[i]);
+        }
+        return questions;
+    }
+    
+    private Question[] createGeographyQuestions() {
+        String[] geographyQuestions = {
+            "What is the capital city of Zambia?",
+            "Which of these countries does NOT border Zambia?",
+            "What is the largest lake in Zambia?",
+            "Which river forms part of Zambia's southern border with Zimbabwe?",
+            "What is the highest point in Zambia?",
+            "In which province is the Victoria Falls located?",
+            "What is the main language spoken in Zambia?",
+            "Which city is known as the 'Copperbelt Capital'?",
+            "What is the name of the major river that runs through the Kafue National Park?",
+            "Which Zambian city is located on the border with the Democratic Republic of Congo?",
+            "What is the total area of Zambia in square kilometers?",
+            "Which Zambian province is known for its large reserves of copper?",
+            "What is the main agricultural product of the Southern Province?",
+            "Which town in Zambia is famous for emerald mining?",
+            "What is the name of the second largest city in Zambia?",
+            "Which Zambian river flows into the Indian Ocean?",
+            "What is the main economic activity in the Copperbelt Province?",
+            "Which province is the Barotse Floodplain located in?",
+            "What is the population of Zambia as of the latest census?",
+            "Which Zambian province shares a border with eight other provinces?",
+            "What is the name of the famous swamp in Northern Zambia?",
+            "Which national park in Zambia is known for its walking safaris?",
+            "What is the major export of Zambia?",
+            "Which province is home to the Luangwa Valley?",
+            "What is the name of the lake formed by the Kariba Dam?"
+        };
+    
+        String[] geographyAnswers = {
+            "C) Lusaka",
+            "D) Kenya",
+            "B) Lake Kariba",
+            "A) Zambezi River",
+            "D) Mafinga Hills",
+            "B) Southern Province",
+            "C) Bemba",
+            "B) Ndola",
+            "A) Kafue River",
+            "D) Ndola",
+            "C) 752,618 sq km",
+            "A) Copperbelt Province",
+            "B) Maize",
+            "C) Kagem",
+            "D) Kitwe",
+            "A) Zambezi River",
+            "B) Mining",
+            "D) Western Province",
+            "A) 18 million",
+            "C) Central Province",
+            "B) Bangweulu Swamps",
+            "A) South Luangwa National Park",
+            "C) Copper",
+            "B) Eastern Province",
+            "D) Lake Kariba"
+        };
+    
+        String[][] geographyOptions = {
+            { "A) Kitwe", "B) Ndola", "C) Lusaka", "D) Livingstone" },
+            { "A) Tanzania", "B) Malawi", "C) Mozambique", "D) Kenya" },
+            { "A) Lake Tanganyika", "B) Lake Kariba", "C) Lake Bangweulu", "D) Lake Mweru" },
+            { "A) Zambezi River", "B) Congo River", "C) Kafue River", "D) Luangwa River" },
+            { "A) Muchinga Mountains", "B) Nyika Plateau", "C) Mulanje Mountain", "D) Mafinga Hills" },
+            { "A) Western Province", "B) Southern Province", "C) Eastern Province", "D) Northern Province" },
+            { "A) Tonga", "B) Lozi", "C) Bemba", "D) Nyanja" },
+            { "A) Lusaka", "B) Ndola", "C) Kitwe", "D) Livingstone" },
+            { "A) Kafue River", "B) Zambezi River", "C) Luangwa River", "D) Chambeshi River" },
+            { "A) Lusaka", "B) Kitwe", "C) Livingstone", "D) Ndola" },
+            { "A) 500,000 sq km", "B) 600,000 sq km", "C) 752,618 sq km", "D) 800,000 sq km" },
+            { "A) Copperbelt Province", "B) Eastern Province", "C) Northern Province", "D) Southern Province" },
+            { "A) Coffee", "B) Maize", "C) Tobacco", "D) Tea" },
+            { "A) Ndola", "B) Kitwe", "C) Kagem", "D) Chingola" },
+            { "A) Lusaka", "B) Ndola", "C) Livingstone", "D) Kitwe" },
+            { "A) Zambezi River", "B) Kafue River", "C) Luangwa River", "D) Congo River" },
+            { "A) Agriculture", "B) Mining", "C) Fishing", "D) Tourism" },
+            { "A) Northern Province", "B) Eastern Province", "C) Southern Province", "D) Western Province" },
+            { "A) 18 million", "B) 20 million", "C) 16 million", "D) 14 million" },
+            { "A) Eastern Province", "B) Northern Province", "C) Central Province", "D) Western Province" },
+            { "A) Okavango Delta", "B) Bangweulu Swamps", "C) Barotse Floodplain", "D) Kafue Flats" },
+            { "A) South Luangwa National Park", "B) Lower Zambezi National Park", "C) Kafue National Park", "D) Liuwa Plain National Park" },
+            { "A) Agriculture", "B) Tourism", "C) Copper", "D) Textiles" },
+            { "A) Northern Province", "B) Eastern Province", "C) Southern Province", "D) Central Province" },
+            { "A) Lake Tanganyika", "B) Lake Bangweulu", "C) Lake Mweru", "D) Lake Kariba" }
+        };
+    
+        Question[] questions = new Question[geographyQuestions.length];
+        for (int i = 0; i < geographyQuestions.length; i++) {
+            questions[i] = new Question(geographyQuestions[i], geographyOptions[i], geographyAnswers[i]);
+        }
+        return questions;
+    }
+    
+    private Question[] createMusicQuestions() {
+        String[] musicQuestions = {
+            "Which Zambian artist is known as the 'Princess of Peace'?",
+            "What genre of music is Zamrock?",
+            "Which Zambian musician released the hit song 'Amalume'?",
+            "Who is considered the pioneer of Zamrock music in Zambia?",
+            "Which Zambian artist is famous for the song 'Toliwe'?",
+            "What is the name of the Zambian music award show?",
+            "Which artist is known as the 'King of Zambian Hip-Hop'?",
+            "Which female artist released the album 'Queen Diva'?",
+            "Which Zambian band was prominent in the 1970s for Zamrock music?",
+            "Who sang the hit song 'Chikondi'?",
+            "Which artist is known for the song 'Vichani'?",
+            "What is the name of Macky 2's debut album?",
+            "Who is the lead vocalist of the band Witch?",
+            "Which artist is known for blending Zambian traditional music with modern genres?",
+            "Which Zambian gospel artist released the album 'Mwamba Lesa'?",
+            "Who is the artist behind the song 'Fwelela'?",
+            "Which Zambian artist is known for the song 'Ba Mai'?",
+            "What is the popular music festival held annually in Lusaka?",
+            "Which Zambian musician is associated with the hit 'Bwetu Bwetu'?",
+            "Who is the artist behind the song 'Kopala Swag'?",
+            "Which Zambian female artist is known for the song 'Mutinta'?",
+            "What genre is the song 'Wilalila' by James Chamanyazi?",
+            "Which Zambian musician is known as the 'Dancehall Magician'?",
+            "Who released the song 'Banono'?",
+            "What is the stage name of the Zambian artist Kondwani Kaira?"
+        };
+    
+        String[] musicAnswers = {
+            "B) Mampi",
+            "C) A fusion of traditional Zambian music and psychedelic rock",
+            "A) Slap Dee",
+            "D) Emmanuel 'Jagari' Chanda",
+            "A) Mampi",
+            "C) Zambian Music Awards",
+            "D) Macky 2",
+            "B) Mampi",
+            "A) Ngozi Family",
+            "C) B1",
+            "B) Chef 187",
+            "D) Ndimupondo",
+            "A) Emmanuel 'Jagari' Chanda",
+            "B) Pompi",
+            "D) Christine",
+            "C) Salma Sky",
+            "A) Afunika",
+            "B) Stanbic Music Festival",
+            "C) Petersen Zagaze",
+            "D) Chef 187",
+            "A) Wezi",
+            "C) Kalindula",
+            "B) Dalisoul",
+            "A) Bobby East",
+            "D) Chef 187"
+        };
+    
+        String[][] musicOptions = {
+            { "A) Theresa Ng'ambi", "B) Mampi", "C) Honey Bee", "D) Wezi" },
+            { "A) Traditional folk music", "B) Contemporary gospel", "C) A fusion of traditional Zambian music and psychedelic rock", "D) Hip-hop" },
+            { "A) Slap Dee", "B) Chef 187", "C) Bobby East", "D) Macky 2" },
+            { "A) PK Chishala", "B) Paul Ngozi", "C) Keith Mlevhu", "D) Emmanuel 'Jagari' Chanda" },
+            { "A) Mampi", "B) Wezi", "C) Kay Figo", "D) Judy Yo" },
+            { "A) Zambia Music Awards", "B) Zambian Annual Music Awards", "C) Zambian Music Awards", "D) National Music Awards" },
+            { "A) Slap Dee", "B) Chef 187", "C) Bobby East", "D) Macky 2" },
+            { "A) Cleo Ice Queen", "B) Mampi", "C) Bombshell Grenade", "D) Wezi" },
+            { "A) Ngozi Family", "B) Witch", "C) Musi-O-Tunya", "D) The Blackfoot" },
+            { "A) JK", "B) Dalisoul", "C) B1", "D) Petersen Zagaze" },
+            { "A) Slap Dee", "B) Chef 187", "C) Bobby East", "D) Macky 2" },
+            { "A) Legendary", "B) Pempelo", "C) Chakolwa Mu Shanty", "D) Ndimupondo" },
+            { "A) Emmanuel 'Jagari' Chanda", "B) Paul Ngozi", "C) Rikki Ililonga", "D) Chrissy Zebby Tembo" },
+            { "A) Wezi", "B) Pompi", "C) Abel Chungu", "D) Tio" },
+            { "A) Ephraim", "B) Kings Malembe", "C) Suwilanji", "D) Christine" },
+            { "A) Macky 2", "B) Slap Dee", "C) Salma Sky", "D) Chef 187" },
+            { "A) Afunika", "B) B1", "C) Shenky Shugah", "D) Rich Bizzy" },
+            { "A) Zambian Music Festival", "B) Stanbic Music Festival", "C) Zambia International Music Festival", "D) Lusaka Music Festival" },
+            { "A) Yo Maps", "B) T-Sean", "C) Petersen Zagaze", "D) Cleo Ice Queen" },
+            { "A) Slap Dee", "B) Bobby East", "C) Pompi", "D) Chef 187" },
+            { "A) Wezi", "B) Cleo Ice Queen", "C) Salma Sky", "D) Bombshell Grenade" },
+            { "A) Rumba", "B) Dancehall", "C) Kalindula", "D) Hip-hop" },
+            { "A) Afunika", "B) Dalisoul", "C) Shenky Shugah", "D) Rich Bizzy" },
+            { "A) Bobby East", "B) Slap Dee", "C) Pompi", "D) Yo Maps" },
+            { "A) Bobby East", "B) Slap Dee", "C) T-Sean", "D) Chef 187" }
+        };
+    
+        Question[] questions = new Question[musicQuestions.length];
+        for (int i = 0; i < musicQuestions.length; i++) {
+            questions[i] = new Question(musicQuestions[i], musicOptions[i], musicAnswers[i]);
+        }
+        return questions;
+    }
+    
+    private Question[] createCultureQuestions() {
+        String[] cultureQuestions = {
+            "What is the main staple food in Zambia?",
+            "Which traditional ceremony celebrates the Lozi people's move to higher ground?",
+            "What is the name of the traditional cloth worn by Zambian women?",
+            "Which animal is considered sacred by the Bemba people?",
+            "What is the primary language spoken by the Tonga people?",
+            "Which festival is celebrated by the Ngoni people in Eastern Zambia?",
+            "What is the traditional Zambian dance performed during harvest time?",
+            "Which Zambian tribe is known for the Makishi masquerade?",
+            "What is the traditional drink made from maize or millet in Zambia?",
+            "Which province is the Likumbi Lya Mize festival celebrated?",
+            "What is the name of the ceremonial leader of the Bemba people?",
+            "Which Zambian ethnic group is famous for their fishing skills?",
+            "What is the traditional game played with seeds or stones in Zambia?",
+            "Which Zambian ceremony involves the crossing of the Zambezi River?",
+            "What is the traditional dish made from groundnuts and vegetables?",
+            "Which Zambian tribe is known for their intricate basket weaving?",
+            "What is the main purpose of the Ncwala ceremony?",
+            "Which Zambian ethnic group predominantly inhabits the Western Province?",
+            "What is the traditional music instrument made from animal skin and wood?",
+            "Which festival marks the end of the planting season for the Bemba people?",
+            "What is the traditional Zambian house made from mud and thatch called?",
+            "Which ethnic group celebrates the Kulamba ceremony?",
+            "What is the name of the traditional healer in Zambian culture?",
+            "Which Zambian tribe celebrates the Mutomboko ceremony?",
+            "What is the traditional attire worn by Zambian men during ceremonies?"
+        };
+    
+        String[] cultureAnswers = {
+            "A) Nshima",
+            "C) Kuomboka",
+            "B) Chitenge",
+            "D) Crocodile",
+            "B) Tonga",
+            "A) Ncwala",
+            "D) Malipenga",
+            "B) Luvale",
+            "A) Chibuku",
+            "C) North-Western Province",
+            "D) Chitimukulu",
+            "A) Lozi",
+            "C) Mancala",
+            "D) Kuomboka",
+            "B) Ifisashi",
+            "C) Tonga",
+            "A) To celebrate the first fruits of the harvest",
+            "B) Lozi",
+            "D) Drum",
+            "A) Chibwela Kumushi",
+            "C) Mud and thatch house",
+            "D) Chewa",
+            "A) Ng'anga",
+            "C) Lunda",
+            "B) Chitenge"
+        };
+    
+        String[][] cultureOptions = {
+            { "A) Nshima", "B) Rice", "C) Cassava", "D) Potatoes" },
+            { "A) Ncwala", "B) Kulamba", "C) Kuomboka", "D) Mutomboko" },
+            { "A) Kanga", "B) Chitenge", "C) Kitenge", "D) Wrapper" },
+            { "A) Lion", "B) Elephant", "C) Python", "D) Crocodile" },
+            { "A) Bemba", "B) Tonga", "C) Lozi", "D) Lunda" },
+            { "A) Ncwala", "B) Likumbi Lya Mize", "C) Kuomboka", "D) Umutomboko" },
+            { "A) Ingoma", "B) Mutomboko", "C) Kalela", "D) Malipenga" },
+            { "A) Bemba", "B) Luvale", "C) Tonga", "D) Chewa" },
+            { "A) Chibuku", "B) Munkoyo", "C) Maheu", "D) Kachasu" },
+            { "A) Eastern Province", "B) Southern Province", "C) North-Western Province", "D) Western Province" },
+            { "A) Litunga", "B) Paramount Chief Mpezeni", "C) Chief Mukuni", "D) Chitimukulu" },
+            { "A) Lozi", "B) Bemba", "C) Tonga", "D) Lunda" },
+            { "A) Igisoro", "B) Mucuba", "C) Mancala", "D) Shisima" },
+            { "A) Likumbi Lya Mize", "B) Kulamba", "C) Ncwala", "D) Kuomboka" },
+            { "A) Nshima", "B) Ifisashi", "C) Chikanda", "D) Kapenta" },
+            { "A) Bemba", "B) Lozi", "C) Tonga", "D) Lunda" },
+            { "A) To celebrate the first fruits of the harvest", "B) To honor the ancestors", "C) To mark the end of the hunting season", "D) To commemorate a historical event" },
+            { "A) Tonga", "B) Lozi", "C) Bemba", "D) Lunda" },
+            { "A) Mbira", "B) Kalimba", "C) Marimba", "D) Drum" },
+            { "A) Chibwela Kumushi", "B) Kuomboka", "C) Likumbi Lya Mize", "D) Mutomboko" },
+            { "A) Brick house", "B) Wooden house", "C) Mud and thatch house", "D) Stone house" },
+            { "A) Lunda", "B) Lozi", "C) Tonga", "D) Chewa" },
+            { "A) Ng'anga", "B) Sangoma", "C) Babalawo", "D) Muti" },
+            { "A) Bemba", "B) Chewa", "C) Lunda", "D) Lozi" },
+            { "A) Suit", "B) Chitenge", "C) Kilt", "D) Dashiki" }
+        };
+    
+        Question[] questions = new Question[cultureQuestions.length];
+        for (int i = 0; i < cultureQuestions.length; i++) {
+            questions[i] = new Question(cultureQuestions[i], cultureOptions[i], cultureAnswers[i]);
+        }
+        return questions;
+    }
+    
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
